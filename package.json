@@ -1,0 +1,20 @@
+{
+  "name": "public",
+  "version": "1.0.0",
+  "main": "game.js",
+  "scripts": {
+    "build": "npx tsc -p tsconfig.json",
+    "watch": "npx tsc -p tsconfig.json --watch",
+    "serve": "npx http-server . -p 5173 -c-1",
+    "dev": "npm run build && npm run serve",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "typescript": "^5.9.3"
+  }
+}

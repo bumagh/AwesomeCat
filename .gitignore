@@ -1,0 +1,18 @@
+node_modules
+# the node and typescript project ignore
+dist
+.env
+.vscode
+.DS_Store
+coverage
+.idea
+*.log
+*.tsbuildinfo
+*.env
+*.local
+*.pem
+*.p12
+*.key
+*.crt
+*.pfx
+*.swp
