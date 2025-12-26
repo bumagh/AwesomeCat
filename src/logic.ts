@@ -16,8 +16,8 @@ export function triggerAction ( choice: 'left' | 'right' ): void
     // 玩家选择的“目标道具”
     const playerTargetItem: 'radish' | 'tissue' = choice === 'left' ? 'radish' : 'tissue';
 
-    // Reverse psychology: cat chooses opposite
-    const targetDir: -1 | 1 = choice === 'left' ? 1 : -1;
+    // 随机：猫随机选择左右
+    const targetDir: -1 | 1 = Math.random() < 0.5 ? -1 : 1;
     const targetPaths = targetDir === 1 ? paths.right : paths.left;
 
     // 猫最终到达的终点道具（左=萝卜，右=纸巾）
@@ -95,16 +95,16 @@ export function triggerAction ( choice: 'left' | 'right' ): void
     tl.to( cat, { y: cat.baseY - 20, duration: 0.2, yoyo: true, repeat: 3 } );
 
     tl.to( {}, { duration: 1.5 } );
-    tl.call( () => triggerFlashback( choice ) );
+    // flashback 也使用这次行动的随机方向（而不是玩家原始选择）
+    tl.call( () => triggerFlashback( targetDir ) );
 }
 
-export function triggerFlashback ( originalChoice: 'left' | 'right' ): void
+export function triggerFlashback ( targetDir: -1 | 1 ): void
 {
     setGameState( 'FLASHBACK' );
 
     resetGameObjects();
 
-    const targetDir: -1 | 1 = originalChoice === 'left' ? -1 : 1;
     const targetPaths = targetDir === -1 ? paths.left : paths.right;
 
     const tl = gsap.timeline();
