@@ -8,6 +8,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- GSAP Animation Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <!-- SystemJS (用于运行 TypeScript 编译后的 system 模块) -->
+    <script src="https://cdn.jsdelivr.net/npm/systemjs@6.14.3/dist/system.min.js"></script>
     <!-- Custom Styles -->
     <link rel="stylesheet" href="style.css">
     <!-- Tailwind Config -->
@@ -120,5 +122,11 @@
 
     <!-- Core Game Logic -->
     <script src="dist/game.js"></script>
+    <script>
+        // 启动入口模块（对应 src/main.ts 编译后的模块名）
+        if (window.System && System.import) {
+            System.import('main');
+        }
+    </script>
 </body>
 </html>

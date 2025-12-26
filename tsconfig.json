@@ -1,12 +1,12 @@
 {
     "compilerOptions": {
         "target": "ES2020",
-        "module": "amd",
+        "module": "system",
+        "outFile": "./dist/game.js",
+        "sourceMap": true,
         "strict": true,
         "skipLibCheck": true,
         "noEmitOnError": false,
-        "outFile": "./dist/game.js",
-        "sourceMap": true,
         "lib": [
             "ES2020",
             "DOM"
@@ -14,7 +14,11 @@
         "types": []
     },
     "files": [
-        "./src/game.ts",
+        "./src/main.ts",
         "./src/globals.d.ts"
+    ],
+    "include": [
+        "./src/**/*.ts",
+        "./src/**/*.d.ts"
     ]
 }
